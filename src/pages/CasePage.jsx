@@ -93,6 +93,7 @@ export default function CasePage() {
             ? <h1 style={{ margin: 0 }}><img className="c-logo" src={c.title.src} alt={c.title.alt} style={{ display: 'block', height: c.title.h, width: 'auto', marginTop: 26 }} /></h1>
             : <h1 className="c-h1" style={{ margin: '18px 0 0', fontSize: 168, fontWeight: 500, letterSpacing: '-0.05em', lineHeight: 0.85 }}>{c.title.text}</h1>}
           <p className="fell c-tag" style={{ margin: '20px 0 0', fontSize: 26 }}>{t(c.tag)}</p>
+          {c.nameNote && <p className="name-note">{t(c.nameNote)}</p>}
         </div>
         <div className="mono" style={{ border: B, fontSize: 11, lineHeight: 1.6 }}>
           {c.ficha.map((r, i) => (

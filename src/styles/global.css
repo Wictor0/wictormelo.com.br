@@ -43,6 +43,7 @@ a{color:inherit}a:hover{color:#B4271D}
 .lg-econecta{-webkit-mask-image:url(/assets/c4d6b8ae5e8d.svg);mask-image:url(/assets/c4d6b8ae5e8d.svg)}
 .lg-skill{-webkit-mask-image:url(/assets/311060648b95.svg);mask-image:url(/assets/311060648b95.svg)}
 .lg-nivelo{-webkit-mask-image:url(/assets/56708cd9c1f8.svg);mask-image:url(/assets/56708cd9c1f8.svg)}
+.lg-literario{-webkit-mask-image:url(/assets/lit-logo.svg);mask-image:url(/assets/lit-logo.svg)}
 .lg-asp{-webkit-mask-image:url(/assets/fcbdbced729e.png);mask-image:url(/assets/fcbdbced729e.png)}
 .idx{display:grid;grid-template-columns:56px 1.4fr 1.4fr 1.4fr 150px 80px;gap:20px;align-items:center}
 .idx-row{padding:16px 0;border-top:1.5px solid #181614;text-decoration:none}
@@ -151,3 +152,4 @@ body{font-family:'Inter Tight',system-ui,sans-serif;color:#181614;-webkit-font-s
 
 /* Fotos da galeria e do manifesto: sem arrastar nem menu de imagem */
 .no-save img,.pill-img img{pointer-events:none;-webkit-user-drag:none;user-select:none;-webkit-touch-callout:none}
+.name-note{margin:14px 0 0;max-width:460px;font-size:14px;line-height:1.55;opacity:.62}

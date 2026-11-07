@@ -3,16 +3,18 @@ export const cases = [
  {
   "slug": "recria",
   "num": {
-   "pt": "01/09",
-   "en": "01/09"
+   "pt": "01/10",
+   "en": "01/10"
   },
   "label": {
    "pt": "Obra 01, mai 2023 → hoje",
    "en": "Work 01, May 2023 → now"
   },
   "title": {
-   "type": "text",
-   "text": "Recria"
+   "type": "logo",
+   "src": "/assets/recria-logo-cor.svg",
+   "alt": "Recria",
+   "h": 120
   },
   "tag": {
    "pt": "Transformando resíduos em oportunidades.",
@@ -209,8 +211,8 @@ export const cases = [
  {
   "slug": "agora",
   "num": {
-   "pt": "02/09",
-   "en": "02/09"
+   "pt": "02/10",
+   "en": "02/10"
   },
   "label": {
    "pt": "Obra 02, jul 2024 → nov 2025",
@@ -371,8 +373,8 @@ export const cases = [
  {
   "slug": "munganga",
   "num": {
-   "pt": "03/09",
-   "en": "03/09"
+   "pt": "03/10",
+   "en": "03/10"
   },
   "label": {
    "pt": "Obra 03, ago 2024 → dez 2025",
@@ -523,8 +525,8 @@ export const cases = [
  {
   "slug": "copiba",
   "num": {
-   "pt": "04/09",
-   "en": "04/09"
+   "pt": "04/10",
+   "en": "04/10"
   },
   "label": {
    "pt": "Obra 04, fev → mar 2025",
@@ -676,8 +678,8 @@ export const cases = [
  {
   "slug": "econecta",
   "num": {
-   "pt": "05/09",
-   "en": "05/09"
+   "pt": "05/10",
+   "en": "05/10"
   },
   "label": {
    "pt": "Obra 05, nov → dez 2024",
@@ -806,8 +808,8 @@ export const cases = [
  {
   "slug": "skill-sphere",
   "num": {
-   "pt": "06/09",
-   "en": "06/09"
+   "pt": "06/10",
+   "en": "06/10"
   },
   "label": {
    "pt": "Obra 06, dez 2024",
@@ -917,8 +919,8 @@ export const cases = [
  {
   "slug": "nivelo",
   "num": {
-   "pt": "07/09",
-   "en": "07/09"
+   "pt": "07/10",
+   "en": "07/10"
   },
   "label": {
    "pt": "Obra 07, out 2024",
@@ -1028,8 +1030,8 @@ export const cases = [
  {
   "slug": "asp-pe",
   "num": {
-   "pt": "08/09",
-   "en": "08/09"
+   "pt": "08/10",
+   "en": "08/10"
   },
   "label": {
    "pt": "Obra 08, jan → mar 2025",
@@ -1117,8 +1119,8 @@ export const cases = [
  {
   "slug": "gozo-escopico",
   "num": {
-   "pt": "09/09 · projeto pessoal",
-   "en": "09/09 · personal project"
+   "pt": "09/10 · projeto pessoal",
+   "en": "09/10 · personal project"
   },
   "label": {
    "pt": "Obra 09, set 2026 → hoje",
@@ -1321,6 +1323,240 @@ export const cases = [
     "html": {
      "pt": "Prints com perfis e dados fictícios. This product uses the TMDB API but is not endorsed or certified by TMDB.",
      "en": "Screenshots use fictional profiles and data. This product uses the TMDB API but is not endorsed or certified by TMDB."
+    }
+   },
+   {
+    "t": "next",
+    "slug": "gozo-literario"
+   }
+  ],
+  "nameNote": {
+   "pt": "O nome vem de Lacan: o gozo escópico é o prazer de olhar.",
+   "en": "The name comes from Lacan: scopic jouissance is the pleasure of looking."
+  }
+ },
+ {
+  "slug": "gozo-literario",
+  "num": {
+   "pt": "10/10 · projeto pessoal",
+   "en": "10/10 · personal project"
+  },
+  "label": {
+   "pt": "Obra 10, set 2026 → hoje",
+   "en": "Work 10, Sep 2026 → now"
+  },
+  "title": {
+   "type": "logo",
+   "src": "/assets/lit-logo.svg",
+   "alt": "Gozo Literário",
+   "h": 150
+  },
+  "tag": {
+   "pt": "A estante de leitura do nosso grupo.",
+   "en": "Our group's shared reading shelf."
+  },
+  "nameNote": {
+   "pt": "O nome vem de Lacan: o gozo literário é o prazer de ler.",
+   "en": "The name comes from Lacan: literary jouissance is the pleasure of reading."
+  },
+  "ficha": [
+   {
+    "k": {
+     "pt": "Papel",
+     "en": "Role"
+    },
+    "v": {
+     "pt": "Concepção do produto · Direção de design (UI/UX e identidade) · Desenvolvimento full-stack",
+     "en": "Product concept · Design direction (UI/UX and identity) · Full-stack development"
+    }
+   },
+   {
+    "k": {
+     "pt": "Stack",
+     "en": "Stack"
+    },
+    "v": {
+     "pt": "Python · Flask · JavaScript (vanilla) · Canvas API · PostgreSQL (Supabase) · Vercel · Google Books · Open Library",
+     "en": "Python · Flask · JavaScript (vanilla) · Canvas API · PostgreSQL (Supabase) · Vercel · Google Books · Open Library"
+    }
+   },
+   {
+    "k": {
+     "pt": "Contexto",
+     "en": "Context"
+    },
+    "v": {
+     "pt": "Projeto solo, feito em pareamento com IA (Claude Code) · uso privado de um grupo de 5 pessoas",
+     "en": "Solo project, pair-programmed with AI (Claude Code) · private use by a group of 5 people"
+    }
+   },
+   {
+    "k": {
+     "pt": "Links",
+     "en": "Links"
+    },
+    "v": {
+     "pt": "Privado. Demonstração sob pedido",
+     "en": "Private. Demo on request"
+    }
+   }
+  ],
+  "blocks": [
+   {
+    "t": "cover",
+    "src": "/assets/lit-capa.jpg",
+    "alt": {
+     "pt": "Gozo Literário, estante de um leitor com o livro atual e o pódio do ano",
+     "en": "Gozo Literário, a reader's shelf with the current book and the year's podium"
+    },
+    "ar": "16 / 10",
+    "bg": "#111",
+    "maxh": false
+   },
+   {
+    "t": "text",
+    "label": {
+     "pt": "Resumo",
+     "en": "Summary"
+    },
+    "html": {
+     "pt": "Um app web privado que criei para o meu grupo de leitura. Cada pessoa tem a própria estante, com o que lê agora, o que quer ler e o que terminou, e o grupo ganha um resumo do ano, destaques e imagens prontas para o story. É o irmão de livros do Gozo Escópico.",
+     "en": "A private web app I built for my reading group. Each person has their own shelf, with what they are reading, what they want to read and what they finished, and the group gets a yearly recap, highlights and images ready for stories. It is the book-world sibling of Gozo Escópico."
+    }
+   },
+   {
+    "t": "text",
+    "label": {
+     "pt": "O desafio",
+     "en": "The challenge"
+    },
+    "html": {
+     "pt": "Apps de leitura como Goodreads, Skoob e StoryGraph são individuais e feitos para comunidades enormes. Eu queria o oposto: um lugar pequeno e privado, onde cinco pessoas vissem o que as outras estão lendo e olhassem juntas para o ano de leitura, sem feed de estranhos e sem recadastrar livro por livro.",
+     "en": "Reading apps like Goodreads, Skoob and StoryGraph are individual and built for huge communities. I wanted the opposite: a small, private place where five people can see what the others are reading and look back together at the year, with no feed of strangers and no re-entering books one by one."
+    }
+   },
+   {
+    "t": "images",
+    "imgs": [
+     {
+      "src": "/assets/lit-home.jpg",
+      "alt": {
+       "pt": "Gozo Literário, tela inicial com quem está lendo o quê",
+       "en": "Gozo Literário, home screen showing who is reading what"
+      }
+     }
+    ]
+   },
+   {
+    "t": "text",
+    "label": {
+     "pt": "A solução",
+     "en": "The solution"
+    },
+    "html": {
+     "pt": "Uma API em Flask, com uma estante por pessoa, e um front em JavaScript puro, sem framework e sem build. A busca passa por um catálogo compartilhado, Google Books, Open Library e o registro de ISBN, e cada capa é verificada antes de entrar. A tela inicial mostra o que cada um está lendo, e o grupo ganha um resumo do ano, um Top 12 em chaveamento, medalhas e imagens de story editáveis.",
+     "en": "A Flask API, with one shelf per person, and a front end in plain JavaScript, with no framework and no build step. Search goes through a shared catalog, Google Books, Open Library and the ISBN registry, and every cover is checked before it is saved. The home screen shows what each person is reading, and the group gets a yearly recap, a Top 12 bracket, medals and editable story images."
+    }
+   },
+   {
+    "t": "images",
+    "imgs": [
+     {
+      "src": "/assets/lit-livro.jpg",
+      "alt": {
+       "pt": "Gozo Literário, ficha do livro com formato, medalhas e pódio",
+       "en": "Gozo Literário, book sheet with format, medals and podium"
+      }
+     }
+    ]
+   },
+   {
+    "t": "images",
+    "imgs": [
+     {
+      "src": "/assets/lit-resumo.jpg",
+      "alt": {
+       "pt": "Gozo Literário, resumo do ano do grupo",
+       "en": "Gozo Literário, the group's yearly recap"
+      }
+     }
+    ]
+   },
+   {
+    "t": "images",
+    "imgs": [
+     {
+      "src": "/assets/lit-destaques.jpg",
+      "alt": {
+       "pt": "Gozo Literário, Top 12 e medalhas",
+       "en": "Gozo Literário, Top 12 and medals"
+      }
+     },
+     {
+      "src": "/assets/lit-story.jpg",
+      "alt": {
+       "pt": "Gozo Literário, editor da imagem de story",
+       "en": "Gozo Literário, story image editor"
+      }
+     }
+    ]
+   },
+   {
+    "t": "bullets",
+    "label": {
+     "pt": "Destaques técnicos",
+     "en": "Technical highlights"
+    },
+    "items": [
+     {
+      "pt": "<b>Busca em camadas</b>. Catálogo do grupo primeiro, depois Google Books (com novas tentativas e detecção de cota), Open Library e o registro de ISBN. Registros-fantasma são descartados e um gênero específico substitui o \"Ficção\" genérico.",
+      "en": "<b>Layered search</b>. The group's catalog first, then Google Books (with retries and quota detection), Open Library and the ISBN registry. Ghost records are discarded and a specific genre replaces the generic \"Fiction\"."
+     },
+     {
+      "pt": "<b>Imagens de story com editor</b>. A estante do ano vira uma imagem 1080×1920 desenhada em Canvas, com fundo, oito cores de brilho, três fontes e selos que se ligam e desligam.",
+      "en": "<b>Story images with an editor</b>. The year's shelf becomes a 1080×1920 image drawn on Canvas, with background, eight glow colours, three fonts and badges that switch on and off."
+     },
+     {
+      "pt": "<b>Top 12 em chaveamento</b>. Doze livros se enfrentam em duplas até sobrar um, e o servidor valida o chaveamento para que nenhum livro ocupe duas vagas.",
+      "en": "<b>Top 12 bracket</b>. Twelve books face off in pairs until one is left, and the server validates the bracket so no book takes two slots."
+     },
+     {
+      "pt": "<b>Mascote que muda de cor</b>. O gato do logo lê um livro cuja cor segue a cor predominante da capa que a pessoa está lendo.",
+      "en": "<b>A mascot that changes colour</b>. The cat in the logo reads a book whose colour follows the dominant colour of the cover the person is reading."
+     },
+     {
+      "pt": "<b>Uma camada de dados, dois bancos</b>. O mesmo código roda em SQLite no desenvolvimento e em Postgres (Supabase) em produção, com migrações idempotentes e escrita protegida por PIN.",
+      "en": "<b>One data layer, two databases</b>. The same code runs on SQLite in development and on Postgres (Supabase) in production, with idempotent migrations and PIN-protected writes."
+     }
+    ]
+   },
+   {
+    "t": "text",
+    "label": {
+     "pt": "Irmão do Gozo Escópico",
+     "en": "Sibling of Gozo Escópico"
+    },
+    "html": {
+     "pt": "Os dois são apps privados para um grupo fechado, com a mesma base e a mesma ideia de transformar dados individuais em uma visão do grupo. No cinema a pergunta é o que assistir agora; nos livros a leitura é lenta e solitária, então o foco é registrar, acompanhar e comemorar o que cada um leu.",
+     "en": "Both are private apps for a closed group, built on the same base and the same idea of turning individual data into a group view. In film the question is what to watch now; with books, reading is slow and solitary, so the focus is on logging, following and celebrating what each person read."
+    }
+   },
+   {
+    "t": "text",
+    "label": {
+     "pt": "Resultado",
+     "en": "Outcome"
+    },
+    "html": {
+     "pt": "O grupo usa o app para registrar as leituras e gerar o resumo e as imagens para compartilhar. Aprendi a lidar com dados de livros que chegam sujos e incompletos de qualquer fonte e que um produto pequeno e privado pode dispensar contas e ganhar em clareza.",
+     "en": "The group uses the app to log their reading and to generate the recap and the images to share. I learned to handle book data that arrives dirty and incomplete from every source, and that a small private product can skip accounts and gain in clarity."
+    }
+   },
+   {
+    "t": "note",
+    "html": {
+     "pt": "Prints com perfis e dados fictícios. Dados e capas: Google Books e Open Library; capas e imagens são de seus respectivos detentores.",
+     "en": "Screenshots use fictional profiles and data. Book data and covers: Google Books and Open Library; covers and images belong to their respective owners."
     }
    },
    {
