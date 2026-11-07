@@ -1,6 +1,6 @@
 # wictormelo.com.br
 
-Portfólio de Wictor Melo. React + Vite, publicado no GitHub Pages por GitHub Actions.
+Portfólio de Wictor Melo. React + Vite, publicado no GitHub Pages pela branch `gh-pages`.
 
 ## Rodar no computador
 
@@ -18,4 +18,5 @@ Portfólio de Wictor Melo. React + Vite, publicado no GitHub Pages por GitHub Ac
 
 ## Publicar
 
-Todo `git push` na branch `main` gera o site e publica sozinho (aba Actions do GitHub).
+    git push          # guarda o código na main
+    npm run deploy    # gera o site e envia para a branch gh-pages, que o GitHub Pages publica
