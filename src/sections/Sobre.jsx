@@ -19,7 +19,7 @@ function Manifesto() {
           <span key={i} style={{ whiteSpace: 'nowrap' }}>
             {word}
             <span className="pill-img" style={{ width: `${w}em`, marginRight: '.06em' }}>
-              <img className="ph" src={`/assets/${img}`} alt="" style={{ objectPosition: pos }} />
+              <img className="ph" src={img} alt="" draggable={false} style={{ objectPosition: pos }} />
             </span>
             {punct}
           </span>

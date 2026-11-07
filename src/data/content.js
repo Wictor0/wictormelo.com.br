@@ -44,16 +44,16 @@ export const sobre = {
   // Manifesto: pedaços de texto e fotos em sequência. "hl" = destaque em Fell vermelha.
   manifesto: {
     pt: [
-      ['t', 'Gosto de construir '], ['p', 'coisas', 'be62729df362.jpg', 2.3, '52% 30%', '.'],
-      ['t', ' Às vezes é uma interface, às vezes um '], ['p', 'app', '10e2a8033621.jpg', 2.8, '50% 50%', ','],
+      ['t', 'Gosto de construir '], ['p', 'coisas', '/g/m-coisas.jpg', 2.3, '50% 50%', '.'],
+      ['t', ' Às vezes é uma interface, às vezes um '], ['p', 'app', '/g/m-app.jpg', 2.8, '50% 50%', ','],
       ['t', ' às vezes um sistema inteiro que só aparece quando para de funcionar. Quase sempre, algo que eu '], ['hl', 'ainda nem sabia fazer'],
-      ['t', ' quando '], ['p', 'comecei', '0ca2162f3998.jpg', 2.4, '40% 62%', '.'],
+      ['t', ' quando '], ['p', 'comecei', '/g/m-comecei.jpg', 2.4, '50% 50%', '.'],
     ],
     en: [
-      ['t', 'I like building '], ['p', 'things', 'be62729df362.jpg', 2.3, '52% 30%', '.'],
-      ['t', ' Sometimes it is an interface, sometimes an '], ['p', 'app', '10e2a8033621.jpg', 2.8, '50% 50%', ','],
+      ['t', 'I like building '], ['p', 'things', '/g/m-coisas.jpg', 2.3, '50% 50%', '.'],
+      ['t', ' Sometimes it is an interface, sometimes an '], ['p', 'app', '/g/m-app.jpg', 2.8, '50% 50%', ','],
       ['t', ' sometimes a whole system you only notice when it stops working. Almost always, something I '], ['hl', "didn't know how to do yet"],
-      ['t', ' when I '], ['p', 'started', '0ca2162f3998.jpg', 2.4, '40% 62%', '.'],
+      ['t', ' when I '], ['p', 'started', '/g/m-comecei.jpg', 2.4, '50% 50%', '.'],
     ],
   },
   cols: {
@@ -127,16 +127,16 @@ export const trajeto = {
 
 // Galeria: posição no grid de 6 colunas x 4 linhas
 export const galeria = [
-  { src: A('0d3b7a7c8a4a.jpg'), col: '1 / span 2', row: '1 / span 2', alt: { pt: 'Oficina Brennand, Várzea', en: 'Oficina Brennand, Várzea' } },
-  { src: A('812c92cd80ba.jpg'), col: '3 / span 1', row: '1 / span 2', alt: { pt: 'Estátua da Naná no Marco Zero', en: 'Naná statue at Marco Zero' } },
-  { src: A('67ee226dcc14.jpg'), col: '4 / span 1', row: '1 / span 1', alt: { pt: 'Iara, a gata, no escuro', en: 'Iara the cat, in the dark' } },
-  { src: A('928f302c6cc3.jpg'), col: '5 / span 2', row: '1 / span 2', alt: { pt: 'Sala com a bandeira de Pernambuco na parede', en: 'A room with the Pernambuco flag on the wall' } },
-  { src: A('10e2a8033621.jpg'), col: '4 / span 1', row: '2 / span 1', alt: { pt: 'Camisa estampada com a bandeira de Pernambuco', en: 'Shirt printed with the Pernambuco flag' } },
-  { src: A('2cffc94e102c.jpg'), col: '1 / span 1', row: '3 / span 2', alt: { pt: 'Cadeira de salva-vidas diante do mar', en: 'Lifeguard chair facing the sea' } },
-  { src: A('026787bfa98a.jpg'), col: '2 / span 2', row: '3 / span 2', bg: '#b4271d', alt: { pt: 'Wictor de costas, olhando pela janela', en: 'Wictor from behind, looking out of a window' } },
-  { src: A('e513438e71b6.jpg'), col: '4 / span 1', row: '3 / span 2', alt: { pt: 'Janela à noite', en: 'A window at night' } },
-  { src: A('bda5d826cb71.jpg'), col: '5 / span 1', row: '3 / span 2', alt: { pt: 'Wictor na beira da praia', en: 'Wictor at the shoreline' } },
-  { src: A('05afc08b9474.jpg'), col: '6 / span 1', row: '3 / span 2', alt: { pt: 'Mar e areia com cordas e sombras', en: 'Sea and sand with ropes and shadows' } },
+  { src: '/g/g-01.jpg', col: '1 / span 2', row: '1 / span 2', alt: { pt: 'Oficina Brennand, Várzea', en: 'Oficina Brennand, Várzea' } },
+  { src: '/g/g-02.jpg', col: '3 / span 1', row: '1 / span 2', alt: { pt: 'Estátua da Naná no Marco Zero', en: 'Naná statue at Marco Zero' } },
+  { src: '/g/g-03.jpg', col: '4 / span 1', row: '1 / span 1', alt: { pt: 'Iara, a gata, no escuro', en: 'Iara the cat, in the dark' } },
+  { src: '/g/g-04.jpg', col: '5 / span 2', row: '1 / span 2', alt: { pt: 'Sala com a bandeira de Pernambuco na parede', en: 'A room with the Pernambuco flag on the wall' } },
+  { src: '/g/g-05.jpg', col: '4 / span 1', row: '2 / span 1', alt: { pt: 'Camisa estampada com a bandeira de Pernambuco', en: 'Shirt printed with the Pernambuco flag' } },
+  { src: '/g/g-06.jpg', col: '1 / span 1', row: '3 / span 2', alt: { pt: 'Cadeira de salva-vidas diante do mar', en: 'Lifeguard chair facing the sea' } },
+  { src: '/g/g-07.jpg', col: '2 / span 2', row: '3 / span 2', bg: '#b4271d', alt: { pt: 'Wictor de costas, olhando pela janela', en: 'Wictor from behind, looking out of a window' } },
+  { src: '/g/g-08.jpg', col: '4 / span 1', row: '3 / span 2', alt: { pt: 'Janela à noite', en: 'A window at night' } },
+  { src: '/g/g-09.jpg', col: '5 / span 1', row: '3 / span 2', alt: { pt: 'Wictor na beira da praia', en: 'Wictor at the shoreline' } },
+  { src: '/g/g-10.jpg', col: '6 / span 1', row: '3 / span 2', alt: { pt: 'Mar e areia com cordas e sombras', en: 'Sea and sand with ropes and shadows' } },
 ];
 
 export const contato = {
