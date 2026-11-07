@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom';
+import { useRef, useState } from 'react';
+import { caseBySlug } from '../data/cases.js';
 import { useT } from '../i18n.jsx';
 import { obras, ui } from '../data/content.js';
 import { Strip } from '../components/Topo.jsx';
@@ -18,6 +20,51 @@ function Logo({ row }) {
   );
 }
 
+// Celular: carrossel de cards com a capa e o logo colorido, sem depender de hover
+function Slider({ t }) {
+  const ref = useRef(null);
+  const [i, setI] = useState(0);
+  const n = obras.rows.length;
+  const onScroll = () => {
+    const el = ref.current; if (!el) return;
+    const card = el.firstElementChild; if (!card) return;
+    setI(Math.round(el.scrollLeft / (card.offsetWidth + 12)));
+  };
+  const go = (d) => {
+    const el = ref.current; const card = el?.firstElementChild; if (!card) return;
+    el.scrollBy({ left: d * (card.offsetWidth + 12), behavior: 'smooth' });
+  };
+  return (
+    <div className="obras-slider">
+      <div className="os-track" ref={ref} onScroll={onScroll}>
+        {obras.rows.map((r, k) => {
+          const cover = caseBySlug[r.slug]?.blocks.find((b) => b.t === 'cover');
+          return (
+            <Link key={r.slug} to={`/obras/${r.slug}`} className="os-card" style={{ '--c': r.c }}>
+              <div className="os-cover" style={{ background: r.thumb ? '#E6DECF' : cover?.bg }}>
+                {(r.thumb || cover) && <img src={r.thumb || cover.src} alt="" loading="lazy" draggable={false} />}
+              </div>
+              <div className="os-body">
+                <div className="os-top mono"><span>{String(k + 1).padStart(2, '0')}</span><span>{t(r.period)}</span></div>
+                <div className="os-logo">
+                  {r.logo ? <img src={r.logo.color} alt={r.name} style={{ height: Math.round(r.logo.h * 1.15) }} /> : <span className="os-name">{r.name}</span>}
+                </div>
+                <p className="fell os-type">{t(r.type)}</p>
+                <div className="os-foot mono"><span>{t(r.role)}</span><span className="os-open">{t(ui.open)}</span></div>
+              </div>
+            </Link>
+          );
+        })}
+      </div>
+      <div className="os-nav mono">
+        <button type="button" onClick={() => go(-1)} disabled={i <= 0} aria-label="Anterior">←</button>
+        <span>{String(Math.min(i + 1, n)).padStart(2, '0')} / {String(n).padStart(2, '0')}</span>
+        <button type="button" onClick={() => go(1)} disabled={i >= n - 1} aria-label="Próximo">→</button>
+      </div>
+    </div>
+  );
+}
+
 export default function Obras() {
   const t = useT();
   const cols = t(obras.cols);
@@ -29,6 +76,8 @@ export default function Obras() {
           <div><p className="label" style={{ margin: '0 0 22px' }}>{t(obras.label)}</p><h2 className="h2">{t(obras.title)}</h2></div>
           <p className="mono" style={{ margin: 0, fontSize: 11, opacity: 0.55 }}>{t(obras.meta)}</p>
         </div>
+        <Slider t={t} />
+        <div className="obras-table">
         <div className="mono idx" style={{ fontSize: 10, opacity: 0.55, paddingBottom: 10 }}>
           <span>{cols[0]}</span><span>{cols[1]}</span><span className="hide-m">{cols[2]}</span><span className="hide-m">{cols[3]}</span><span className="hide-m">{cols[4]}</span><span />
         </div>
@@ -43,6 +92,7 @@ export default function Obras() {
           </Link>
         ))}
         <div style={{ borderTop: '1.5px solid #181614' }} />
+        </div>
       </div>
     </section>
   );
