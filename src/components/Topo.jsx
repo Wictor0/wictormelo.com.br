@@ -1,12 +1,16 @@
 import { useEffect, useState } from 'react';
 
-// Carrega uma única vez o mapa topográfico de Pernambuco (id #pe-topo) de
-// public/topo-defs.svg. Os recortes usam <use href="#pe-topo"> com viewBox diferentes.
+// O mapa topográfico de Pernambuco fica em public/topo-defs.svg e é baixado uma vez só.
+let topoPromise;
+export function loadTopo() {
+  if (!topoPromise) topoPromise = fetch('/topo-defs.svg').then((r) => r.text()).catch(() => '');
+  return topoPromise;
+}
+
+// Desenha as definições (#pe-topo) uma vez; os recortes usam <use href="#pe-topo">.
 export function TopoDefs() {
   const [svg, setSvg] = useState('');
-  useEffect(() => {
-    fetch('/topo-defs.svg').then((r) => r.text()).then(setSvg).catch(() => {});
-  }, []);
+  useEffect(() => { loadTopo().then(setSvg); }, []);
   return <div aria-hidden="true" style={{ position: 'absolute', width: 0, height: 0, overflow: 'hidden' }} dangerouslySetInnerHTML={{ __html: svg }} />;
 }
 

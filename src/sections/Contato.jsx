@@ -1,4 +1,5 @@
 import { useT } from '../i18n.jsx';
+import Logo from '../components/Logo.jsx';
 import { contato, ui, CV_URL } from '../data/content.js';
 import { TopoCrop, Star, STAR } from '../components/Topo.jsx';
 
@@ -47,7 +48,7 @@ export default function Contato() {
               <span style={{ padding: '14px 16px', borderBottom: '1.5px solid currentColor', fontFamily: "'Inter Tight', sans-serif", fontWeight: 600, fontSize: 24, letterSpacing: 0 }}>PERNAMBUCO</span>
               <span style={{ padding: '14px 16px', lineHeight: 1.7, opacity: 0.85 }}>{t(contato.peLine)}<br />Wictor Melo/ 26/</span>
               <span style={{ padding: '12px 16px', borderTop: '1.5px solid currentColor', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <Star /><span className="fell" style={{ fontSize: 26, textTransform: 'none', letterSpacing: 0 }}>wm</span>
+                <Star /><Logo height={17} label="WM" />
               </span>
             </div>
           </div>

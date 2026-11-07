@@ -11,7 +11,7 @@ import Contato from '../sections/Contato.jsx';
 export default function Home() {
   const { hash, state } = useLocation();
   useEffect(() => {
-    document.title = 'Wictor Melo, design e desenvolvimento';
+    document.title = 'Wictor Melo';
     // Vindo de um case (state.to) ou de um link antigo com #: rola até a seção e limpa a URL
     const id = state?.to || (hash ? hash.slice(1) : null);
     if (id) {

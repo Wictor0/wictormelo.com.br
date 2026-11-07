@@ -1,4 +1,5 @@
 import { Fragment } from 'react';
+import Logo from '../components/Logo.jsx';
 import { useT, useLang } from '../i18n.jsx';
 import { sobre, ui, CV_URL } from '../data/content.js';
 import { TopoCrop } from '../components/Topo.jsx';
@@ -43,7 +44,7 @@ export default function Sobre() {
                 <span style={{ padding: '8px 10px', borderBottom: '1.5px solid currentColor' }}>7°51'04"S<br />35°15'14"W/</span>
                 <span style={{ padding: '8px 10px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                   WICTOR MELO<br />{t(sobre.albumTag)}
-                  <span className="fell" style={{ fontSize: 20, textTransform: 'none', letterSpacing: 0, alignSelf: 'flex-end' }}>wm</span>
+                  <Logo height={13} label="WM" style={{ alignSelf: 'flex-end' }} />
                 </span>
               </div>
             </div>

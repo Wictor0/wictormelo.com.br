@@ -3,13 +3,16 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { LangProvider } from './i18n.jsx';
 import App from './App.jsx';
+import { IntroProvider } from './components/Intro.jsx';
 import './styles/global.css';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
       <LangProvider>
-        <App />
+        <IntroProvider>
+          <App />
+        </IntroProvider>
       </LangProvider>
     </BrowserRouter>
   </StrictMode>

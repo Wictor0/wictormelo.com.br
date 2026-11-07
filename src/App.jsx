@@ -1,19 +1,44 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useEffect, useLayoutEffect } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import Home from './pages/Home.jsx';
 import CasePage from './pages/CasePage.jsx';
 import { TopoDefs } from './components/Topo.jsx';
 
-// Transição entre páginas: a página nova sobe e aparece
+// Transição entre páginas: uma cortina azul com o mapa sobe (sem esticar) cobrindo
+// a página que sai e continua subindo para revelar a nova.
+const ease = [0.65, 0, 0.35, 1];
+let firstPage = true;
+
+function Curtain(props) {
+  return (
+    <motion.div className="curtain" aria-hidden="true" {...props}>
+      <svg viewBox="560 40 420 260" preserveAspectRatio="xMidYMid slice"><use href="#pe-topo" /></svg>
+    </motion.div>
+  );
+}
+
 function Page({ children }) {
+  const [enter] = useState(() => !firstPage);
+  useEffect(() => { firstPage = false; }, []);
   return (
     <motion.main
-      initial={{ opacity: 0, y: 24 }}
-      animate={{ opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.2, 0.8, 0.2, 1] } }}
-      exit={{ opacity: 0, transition: { duration: 0.25 } }}
+      initial={{ opacity: 1 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 1, transition: { duration: 0.6 } }}
     >
       {children}
+      {enter && (
+        <Curtain
+          initial={{ y: '0%' }}
+          animate={{ y: '-100%', transition: { duration: 0.8, ease, delay: 0.05 } }}
+        />
+      )}
+      <Curtain
+        initial={{ y: '100%' }}
+        animate={{ y: '100%' }}
+        exit={{ y: '0%', transition: { duration: 0.6, ease } }}
+      />
     </motion.main>
   );
 }

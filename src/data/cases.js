@@ -1179,14 +1179,14 @@ export const cases = [
   "blocks": [
    {
     "t": "cover",
-    "src": "/assets/2ded5ce13d20.jpg",
+    "src": "/assets/97622f01ccf2.jpg",
     "alt": {
-     "pt": "Gozo Escópico, capa",
-     "en": "Gozo Escópico, cover"
+     "pt": "Gozo Escópico, tela inicial com o destaque do dia",
+     "en": "Gozo Escópico, home screen with the pick of the day"
     },
-    "ar": "4 / 3",
+    "ar": "16 / 10",
     "bg": "#111",
-    "maxh": true
+    "maxh": false
    },
    {
     "t": "text",
@@ -1214,10 +1214,10 @@ export const cases = [
     "t": "images",
     "imgs": [
      {
-      "src": "/assets/97622f01ccf2.jpg",
+      "src": "/assets/2ded5ce13d20.jpg",
       "alt": {
-       "pt": "Gozo Escópico, perfil com destaque do dia e watchlist ranqueada",
-       "en": "Gozo Escópico, profile with the pick of the day and a ranked watchlist"
+       "pt": "Gozo Escópico, lista do grupo e ficha do filme no celular",
+       "en": "Gozo Escópico, group list and the film sheet on mobile"
       }
      }
     ]
