@@ -1,5 +1,6 @@
 import { useT } from '../i18n.jsx';
 import { galeria } from '../data/content.js';
+import Pic from '../components/Pic.jsx';
 
 export default function Galeria() {
   const t = useT();
@@ -9,7 +10,7 @@ export default function Galeria() {
         <div className="mos" style={{ display: 'grid', gridTemplateColumns: 'repeat(6, minmax(0, 1fr))', gridTemplateRows: 'repeat(4, clamp(120px, 14.5vw, 210px))', gap: 8 }}>
           {galeria.map((g, i) => (
             <div key={i} className="mos-cell rv" style={{ gridColumn: g.col, gridRow: g.row, position: 'relative', overflow: 'hidden', background: g.bg || '#D9D0C0' }}>
-              <img className="ph" src={g.src} alt={t(g.alt)} loading="lazy" draggable={false} />
+              <Pic className="ph" src={g.src} sizes="(max-width: 900px) 50vw, 25vw" alt={t(g.alt)} loading="lazy" draggable={false} />
               <span className="mono" style={{ position: 'absolute', left: 10, bottom: 8, fontSize: 10, color: '#EEE5D3' }}>{String(i + 1).padStart(2, '0')}</span>
             </div>
           ))}

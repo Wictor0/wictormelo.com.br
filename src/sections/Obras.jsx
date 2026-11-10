@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import { useRef, useState } from 'react';
-import { caseBySlug } from '../data/cases.js';
 import { useT } from '../i18n.jsx';
 import { obras, ui } from '../data/content.js';
 import { Strip } from '../components/Topo.jsx';
+import Pic from '../components/Pic.jsx';
 
 function Logo({ row }) {
   const l = row.logo;
@@ -38,11 +38,10 @@ function Slider({ t }) {
     <div className="obras-slider">
       <div className="os-track" ref={ref} onScroll={onScroll}>
         {obras.rows.map((r, k) => {
-          const cover = caseBySlug[r.slug]?.blocks.find((b) => b.t === 'cover');
           return (
             <Link key={r.slug} to={`/obras/${r.slug}`} className="os-card" style={{ '--c': r.c }}>
-              <div className="os-cover" style={{ background: r.thumb ? '#E6DECF' : cover?.bg }}>
-                {(r.thumb || cover) && <img src={r.thumb || cover.src} alt="" loading="lazy" draggable={false} />}
+              <div className="os-cover" style={{ background: '#E6DECF' }}>
+                {r.thumb && <Pic src={r.thumb} sizes="(max-width: 480px) 82vw, 380px" alt="" loading="lazy" draggable={false} />}
               </div>
               <div className="os-body">
                 <div className="os-top mono"><span>{String(k + 1).padStart(2, '0')}</span><span>{t(r.period)}</span></div>

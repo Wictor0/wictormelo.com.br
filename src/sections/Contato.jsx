@@ -1,5 +1,6 @@
 import { useT } from '../i18n.jsx';
 import Logo from '../components/Logo.jsx';
+import Pic from '../components/Pic.jsx';
 import { contato, ui, CV_URL } from '../data/content.js';
 import { TopoCrop, Star, STAR } from '../components/Topo.jsx';
 
@@ -37,7 +38,7 @@ export default function Contato() {
             </div>
           </div>
           <div className="rv" style={{ aspectRatio: '4 / 5', maxWidth: 380, justifySelf: 'end', width: '100%', overflow: 'hidden', background: '#2B393E' }}>
-            <img className="ph" src="/assets/5c7f569f1f37.jpg" alt={t(contato.photoAlt)} style={{ objectPosition: '60% 40%' }} />
+            <Pic className="ph" src="/assets/5c7f569f1f37.jpg" sizes="(max-width: 900px) 100vw, 380px" alt={t(contato.photoAlt)} loading="lazy" style={{ objectPosition: '60% 40%' }} />
           </div>
         </div>
         <div className="wrap" style={{ marginTop: 90 }}>

@@ -1,5 +1,6 @@
 import { Fragment } from 'react';
 import Logo from '../components/Logo.jsx';
+import Pic from '../components/Pic.jsx';
 import { useT, useLang } from '../i18n.jsx';
 import { sobre, ui, CV_URL } from '../data/content.js';
 import { TopoCrop } from '../components/Topo.jsx';
@@ -19,7 +20,7 @@ function Manifesto() {
           <span key={i} style={{ whiteSpace: 'nowrap' }}>
             {word}
             <span className="pill-img" style={{ width: `${w}em`, marginRight: '.06em' }}>
-              <img className="ph" src={img} alt="" draggable={false} style={{ objectPosition: pos }} />
+              <Pic className="ph" src={img} sizes="240px" alt="" draggable={false} style={{ objectPosition: pos }} />
             </span>
             {punct}
           </span>
@@ -37,7 +38,7 @@ export default function Sobre() {
         <p className="label" style={{ margin: '0 0 28px' }}>{t(sobre.label)}</p>
         <div className="album-grid">
           <div className="rv album">
-            <img className="ph" src="/assets/31f75be885fe.jpg" alt={t(sobre.photoAlt)} />
+            <Pic className="ph" src="/assets/31f75be885fe.jpg" sizes="(max-width: 900px) 100vw, 50vw" alt={t(sobre.photoAlt)} />
             <div className="album-ficha">
               <div style={{ position: 'relative', overflow: 'hidden', color: '#F4EFE6' }}><TopoCrop className="album-map" viewBox="841.9 70.7 190 84" /></div>
               <div className="mono" style={{ borderLeft: '1.5px solid currentColor', display: 'grid', gridTemplateRows: 'auto 1fr', fontSize: 10, lineHeight: 1.5 }}>

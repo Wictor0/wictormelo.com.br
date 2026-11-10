@@ -1,6 +1,7 @@
 import { useT } from '../i18n.jsx';
 import { trajeto } from '../data/content.js';
 import { Strip } from '../components/Topo.jsx';
+import Pic from '../components/Pic.jsx';
 
 export default function Trajeto() {
   const t = useT();
@@ -12,7 +13,7 @@ export default function Trajeto() {
           <p className="label" style={{ margin: '0 0 22px' }}>{t(trajeto.label)}</p>
           <h2 className="h2">{t(trajeto.title)}</h2>
           <div style={{ marginTop: 40, aspectRatio: '3 / 4', maxWidth: 420, overflow: 'hidden', background: '#C9C2B4' }}>
-            <img className="ph" src="/assets/a28d9db6a358.jpg" alt={t(trajeto.photoAlt)} />
+            <Pic className="ph" src="/assets/a28d9db6a358.jpg" sizes="(max-width: 900px) 100vw, 420px" alt={t(trajeto.photoAlt)} loading="lazy" />
           </div>
           <p className="mono" style={{ margin: '12px 0 0', fontSize: 10, opacity: 0.6 }}>{t(trajeto.photoCap)}</p>
         </div>

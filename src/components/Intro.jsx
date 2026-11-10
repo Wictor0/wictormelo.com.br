@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState } from 'react';
 import Logo from './Logo.jsx';
 import { AnimatePresence, motion } from 'framer-motion';
 import { loadTopo } from './Topo.jsx';
+import { preloadPic } from './Pic.jsx';
 
 // Abertura do site: o contorno de Pernambuco aparece vazio e as curvas de nível
 // vão se formando. Roda só na primeira entrada de cada visita (sessionStorage).
@@ -45,7 +46,7 @@ export function IntroProvider({ children }) {
   useEffect(() => {
     if (skip) return;
     document.documentElement.style.overflow = 'hidden';
-    const hero = new Promise((res) => { const i = new Image(); i.onload = i.onerror = res; i.src = '/assets/faf4e2a2aa76.jpg'; });
+    const hero = preloadPic('/assets/faf4e2a2aa76.jpg');
     loadTopo().then((t) => { setPaths(parseTopo(t)); setTimeout(() => setDrawn(true), DRAW_END - 700); });
     const timeout = new Promise((res) => setTimeout(res, 8000));
     Promise.race([Promise.all([hero, loadTopo()]), timeout]).then(() => setLoaded(true));

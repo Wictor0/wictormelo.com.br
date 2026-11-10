@@ -4,6 +4,7 @@ import { useT, LangSwitch } from '../i18n.jsx';
 import { ui } from '../data/content.js';
 import { TopoCrop, Star } from '../components/Topo.jsx';
 import { useIntroDone } from '../components/Intro.jsx';
+import Pic from '../components/Pic.jsx';
 
 const ease = [0.2, 0.8, 0.2, 1];
 
@@ -12,9 +13,12 @@ export default function Hero() {
   const go = useIntroDone();
   return (
     <section id="topo" className="dark" style={{ position: 'relative', height: '100svh', minHeight: 640, overflow: 'hidden', background: '#24211E', color: '#F4EFE6' }}>
-      <motion.img
+      <Pic
+        as={motion.img}
         className="ph"
         src="/assets/faf4e2a2aa76.jpg"
+        sizes="100vw"
+        fetchPriority="high"
         alt={t(ui.heroAlt)}
         style={{ position: 'absolute', inset: 0 }}
         initial={{ scale: 1.08, opacity: 0 }}
