@@ -5,6 +5,7 @@ import { LangProvider } from './i18n.jsx';
 import App from './App.jsx';
 import { IntroProvider } from './components/Intro.jsx';
 import './styles/global.css';
+import './analytics.js';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

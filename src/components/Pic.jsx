@@ -24,7 +24,7 @@ export default function Pic({ src, sizes = '100vw', as: Img = 'img', alt = '', .
     <picture style={{ display: 'contents' }}>
       <source type="image/avif" srcSet={srcSet(src, m, 'avif')} sizes={sizes} />
       <source type="image/webp" srcSet={srcSet(src, m, 'webp')} sizes={sizes} />
-      <Img src={src} alt={alt} width={m.w} height={m.h} {...rest} />
+      <Img src={src} alt={alt} width={m.w} height={m.h} decoding="async" {...rest} />
     </picture>
   );
 }

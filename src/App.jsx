@@ -10,10 +10,15 @@ import { TopoDefs } from './components/Topo.jsx';
 const ease = [0.65, 0, 0.35, 1];
 let firstPage = true;
 
+// O mapa da cortina é uma imagem pronta (feita do mesmo #pe-topo). Desenhar o SVG
+// do mapa a cada quadro pesava demais no celular durante a transição.
+const CURTAIN_IMG = '/curtain-map.webp';
+if (typeof window !== 'undefined') { const i = new Image(); i.decoding = 'async'; i.src = CURTAIN_IMG; }
+
 function Curtain(props) {
   return (
     <motion.div className="curtain" aria-hidden="true" {...props}>
-      <svg viewBox="560 40 420 260" preserveAspectRatio="xMidYMid slice"><use href="#pe-topo" /></svg>
+      <img src={CURTAIN_IMG} alt="" decoding="async" />
     </motion.div>
   );
 }

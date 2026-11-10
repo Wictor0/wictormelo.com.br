@@ -58,8 +58,8 @@ a{color:inherit}a:hover{color:#B4271D}
 @media (max-width:900px){.ofi{grid-template-columns:minmax(0,1fr)}.pz-cell{grid-column:auto;grid-row:auto}.az-cell{grid-template-columns:repeat(6,minmax(0,1fr))}}
 .album-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,4vw,64px);align-items:stretch}
 .album{position:relative;min-height:480px;overflow:hidden;background:#3F5A3A}
-.album>img.ph{position:absolute;inset:0;object-position:50% 78%!important}
-@media (max-width:900px){.album{aspect-ratio:4/5;min-height:0}.album>img.ph{object-position:50% 70%!important}}
+.album img.ph{position:absolute;inset:0;object-position:50% 78%!important}
+@media (max-width:900px){.album{aspect-ratio:4/5;min-height:0}.album img.ph{object-position:50% 70%!important}}
 .album-map{position:absolute;inset:0}
 .album-ficha{overflow:hidden;position:absolute;left:4%;right:4%;bottom:4%;height:20%;min-height:96px;display:grid;grid-template-columns:minmax(0,1fr) 168px;border:1.5px solid #F4EFE6;color:#F4EFE6;background:rgba(18,16,14,.18)}
 .manifesto{margin:clamp(56px,7vw,96px) 0 0;font-size:clamp(26px,2.75vw,40px);line-height:1.4;letter-spacing:-0.02em;font-weight:500;max-width:1280px;text-wrap:balance}
@@ -145,7 +145,8 @@ body{font-family:'Inter Tight',system-ui,sans-serif;color:#181614;-webkit-font-s
 
 /* Transição entre páginas */
 .curtain{position:fixed;inset:0;z-index:250;background:#1E3540;color:rgba(238,229,211,.35);pointer-events:none;overflow:hidden}
-.curtain svg{position:absolute;inset:0;width:100%;height:100%}
+.curtain{will-change:transform;contain:strict}
+.curtain img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 
 .intro-line{stroke-dasharray:1;stroke-dashoffset:1;animation-name:intro-draw;animation-timing-function:cubic-bezier(.45,0,.25,1);animation-fill-mode:forwards}
 @keyframes intro-draw{to{stroke-dashoffset:0}}
