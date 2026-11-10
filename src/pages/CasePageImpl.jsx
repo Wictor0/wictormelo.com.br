@@ -1,5 +1,6 @@
 import { Link, useParams, Navigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useLayoutEffect } from 'react';
+import { startMorph, finishMorph } from '../morph.js';
 import { useT, LangSwitch } from '../i18n.jsx';
 import { caseBySlug } from '../data/cases.js';
 import { obras, ui } from '../data/content.js';
@@ -13,7 +14,7 @@ function Block({ b, t }) {
   switch (b.t) {
     case 'cover':
       return (
-        <div className="c-cover rv" style={{ margin: '64px 64px 0', aspectRatio: b.ar, maxHeight: b.maxh ? 900 : undefined, overflow: 'hidden', background: b.bg }}>
+        <div className="c-cover rv" data-morph="cover" style={{ margin: '64px 64px 0', aspectRatio: b.ar, maxHeight: b.maxh ? 900 : undefined, overflow: 'hidden', background: b.bg }}>
           <Pic className="ph" src={b.src} sizes="100vw" alt={t(b.alt)} />
         </div>
       );
@@ -58,7 +59,9 @@ function Block({ b, t }) {
       const nx = obras.rows.find((r) => r.slug === b.slug);
       return (
         <div className="c-next" style={{ padding: '60px 64px 80px' }}>
-          <Link className="next-link" to={`/obras/${b.slug}`} style={{ '--c': nx?.c }}>
+          <Link className="next-link" to={`/obras/${b.slug}`} style={{ '--c': nx?.c }} onClick={(e) => startMorph(e, [
+            { key: 'logo', el: e.currentTarget.querySelector('.next-logo'), src: nx?.logo?.color },
+          ])}>
             <span className="mono next-label">{t(ui.next)}</span>
             <span className="next-mark">
               {nx?.logo
@@ -79,6 +82,8 @@ export default function CasePage() {
   const { slug } = useParams();
   const t = useT();
   const c = caseBySlug[slug];
+  // se veio do índice de obras, leva o logo (e a capa) até aqui
+  useLayoutEffect(() => { finishMorph(); }, [slug]);
   useEffect(() => { if (c) document.title = `${obras.rows.find((r) => r.slug === slug)?.name}, Wictor Melo`; }, [c, slug]);
   if (!c) return <Navigate to="/" replace />;
   return (
@@ -91,7 +96,7 @@ export default function CasePage() {
         <div>
           <p className="label">{t(c.label)}</p>
           {c.title.type === 'logo'
-            ? <h1 style={{ margin: 0 }}><img className="c-logo" src={c.title.src} alt={c.title.alt} style={{ display: 'block', height: c.title.h, width: 'auto', marginTop: 26 }} /></h1>
+            ? <h1 style={{ margin: 0 }}><img className="c-logo" data-morph="logo" src={c.title.src} alt={c.title.alt} style={{ display: 'block', height: c.title.h, width: 'auto', marginTop: 26 }} /></h1>
             : <h1 className="c-h1" style={{ margin: '18px 0 0', fontSize: 168, fontWeight: 500, letterSpacing: '-0.05em', lineHeight: 0.85 }}>{c.title.text}</h1>}
           <p className="fell c-tag" style={{ margin: '20px 0 0', fontSize: 26 }}>{t(c.tag)}</p>
           {c.nameNote && <p className="name-note">{t(c.nameNote)}</p>}

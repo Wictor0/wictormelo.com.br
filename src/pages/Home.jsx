@@ -16,7 +16,7 @@ export default function Home() {
     const id = state?.to || (hash ? hash.slice(1) : null);
     if (id) {
       const el = document.getElementById(id);
-      if (el) setTimeout(() => el.scrollIntoView({ behavior: 'auto' }), 0);
+      if (el) setTimeout(() => el.scrollIntoView({ behavior: 'instant' }), 0);
       window.history.replaceState(null, '', '/');
     }
   }, [hash, state]);

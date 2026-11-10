@@ -4,6 +4,7 @@ import { useT } from '../i18n.jsx';
 import { obras, ui } from '../data/content.js';
 import { Strip } from '../components/Topo.jsx';
 import Pic from '../components/Pic.jsx';
+import { startMorph } from '../morph.js';
 
 function Logo({ row }) {
   const l = row.logo;
@@ -39,7 +40,10 @@ function Slider({ t }) {
       <div className="os-track" ref={ref} onScroll={onScroll}>
         {obras.rows.map((r, k) => {
           return (
-            <Link key={r.slug} to={`/obras/${r.slug}`} className="os-card" style={{ '--c': r.c }}>
+            <Link key={r.slug} to={`/obras/${r.slug}`} className="os-card" style={{ '--c': r.c }} onClick={(e) => startMorph(e, [
+              { key: 'logo', el: e.currentTarget.querySelector('.os-logo img'), src: r.logo?.color },
+              { key: 'cover', el: e.currentTarget.querySelector('.os-cover'), src: e.currentTarget.querySelector('.os-cover img')?.currentSrc, fit: 'cover' },
+            ])}>
               <div className="os-cover" style={{ background: '#E6DECF' }}>
                 {r.thumb && <Pic src={r.thumb} sizes="(max-width: 480px) 82vw, 380px" alt="" loading="lazy" draggable={false} />}
               </div>
@@ -81,7 +85,9 @@ export default function Obras() {
           <span>{cols[0]}</span><span>{cols[1]}</span><span className="hide-m">{cols[2]}</span><span className="hide-m">{cols[3]}</span><span className="hide-m">{cols[4]}</span><span />
         </div>
         {obras.rows.map((r, i) => (
-          <Link key={r.slug} className="row idx idx-row" to={`/obras/${r.slug}`} style={{ '--c': r.c }}>
+          <Link key={r.slug} className="row idx idx-row" to={`/obras/${r.slug}`} style={{ '--c': r.c }} onClick={(e) => startMorph(e, [
+            { key: 'logo', el: e.currentTarget.querySelector('.lgw'), src: r.logo?.color },
+          ])}>
             <span className="mono" style={{ fontSize: 11 }}>{String(i + 1).padStart(2, '0')}</span>
             <Logo row={r} />
             <span className="fell hide-m" style={{ fontSize: 20 }}>{t(r.type)}</span>

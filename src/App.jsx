@@ -4,6 +4,7 @@ import { useEffect, useLayoutEffect, useState } from 'react';
 import Home from './pages/Home.jsx';
 import CasePage from './pages/CasePage.jsx';
 import { TopoDefs } from './components/Topo.jsx';
+import { morphPending } from './morph.js';
 
 // Transição entre páginas: uma cortina azul com o mapa sobe (sem esticar) cobrindo
 // a página que sai e continua subindo para revelar a nova.
@@ -23,27 +24,38 @@ function Curtain(props) {
   );
 }
 
+// Duas formas de trocar de página. Ao abrir uma obra pelo índice, o logo voa até o
+// título do case (morph.js) e as páginas só esmaecem. No resto (voltar, links
+// diretos, quem prefere menos movimento), a cortina com o mapa.
+// `custom` vem do AnimatePresence e diz, na hora da saída, qual das duas é.
+const mainV = {
+  in: (m) => ({ opacity: 1, transition: m ? { duration: 0.45, delay: 0.25 } : { duration: 0 } }),
+  out: (m) => (m ? { opacity: 0, transition: { duration: 0.3, ease: 'easeOut' } } : { opacity: 1, transition: { duration: 0.6 } }),
+};
+const curtainV = {
+  rest: { y: '100%' },
+  out: (m) => (m ? { y: '100%', transition: { duration: 0 } } : { y: '0%', transition: { duration: 0.6, ease } }),
+};
+
 function Page({ children }) {
-  const [enter] = useState(() => !firstPage);
+  const [enter] = useState(() => (firstPage ? null : morphPending() ? 'morph' : 'curtain'));
   useEffect(() => { firstPage = false; }, []);
   return (
     <motion.main
-      initial={{ opacity: 1 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 1, transition: { duration: 0.6 } }}
+      custom={enter === 'morph'}
+      variants={mainV}
+      initial={enter === 'morph' ? { opacity: 0 } : { opacity: 1 }}
+      animate="in"
+      exit="out"
     >
       {children}
-      {enter && (
+      {enter === 'curtain' && (
         <Curtain
           initial={{ y: '0%' }}
           animate={{ y: '-100%', transition: { duration: 0.8, ease, delay: 0.05 } }}
         />
       )}
-      <Curtain
-        initial={{ y: '100%' }}
-        animate={{ y: '100%' }}
-        exit={{ y: '0%', transition: { duration: 0.6, ease } }}
-      />
+      <Curtain variants={curtainV} initial="rest" animate="rest" exit="out" />
     </motion.main>
   );
 }
@@ -78,7 +90,7 @@ export default function App() {
   return (
     <>
       <TopoDefs />
-      <AnimatePresence mode="wait" onExitComplete={() => { if (!location.state?.to) window.scrollTo(0, 0); }}>
+      <AnimatePresence mode="wait" custom={morphPending()} onExitComplete={() => { if (!location.state?.to) window.scrollTo({ top: 0, left: 0, behavior: 'instant' }); }}>
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Page><Home /></Page>} />
           <Route path="/obras/:slug" element={<Page><CasePage /></Page>} />
