@@ -59,7 +59,10 @@ a{color:inherit}a:hover{color:#B4271D}
 .album-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,4vw,64px);align-items:stretch}
 .album{position:relative;min-height:480px;overflow:hidden;background:#3F5A3A}
 .album img.ph{position:absolute;inset:0;object-position:50% 78%!important}
-@media (max-width:900px){.album{aspect-ratio:4/5;min-height:0}.album img.ph{object-position:50% 70%!important}}
+/* No celular o álbum não tem nada no fluxo (foto e ficha são absolutas). O Safari
+   do iPhone ignora o aspect-ratio de um item esticado no grid e o álbum some com
+   altura zero; o ::before com padding garante os 4:5 em qualquer navegador. */
+@media (max-width:900px){.album{min-height:0;align-self:start}.album::before{content:"";display:block;padding-top:125%}.album img.ph{object-position:50% 70%!important}}
 .album-map{position:absolute;inset:0}
 .album-ficha{overflow:hidden;position:absolute;left:4%;right:4%;bottom:4%;height:20%;min-height:96px;display:grid;grid-template-columns:minmax(0,1fr) 168px;border:1.5px solid #F4EFE6;color:#F4EFE6;background:rgba(18,16,14,.18)}
 .manifesto{margin:clamp(56px,7vw,96px) 0 0;font-size:clamp(26px,2.75vw,40px);line-height:1.4;letter-spacing:-0.02em;font-weight:500;max-width:1280px;text-wrap:balance}
