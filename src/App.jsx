@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useLayoutEffect, useState } from 'react';
 import Home from './pages/Home.jsx';
 import CasePage from './pages/CasePage.jsx';
+import Pernambuco from './pages/Pernambuco.jsx';
 import { TopoDefs } from './components/Topo.jsx';
 import { morphPending } from './morph.js';
 
@@ -94,6 +95,7 @@ export default function App() {
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Page><Home /></Page>} />
           <Route path="/obras/:slug" element={<Page><CasePage /></Page>} />
+          <Route path="/pernambuco" element={<Page><Pernambuco /></Page>} />
           <Route path="*" element={<Page><Home /></Page>} />
         </Routes>
       </AnimatePresence>

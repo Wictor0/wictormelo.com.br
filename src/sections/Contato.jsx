@@ -1,12 +1,9 @@
 import { useT } from '../i18n.jsx';
 import Logo from '../components/Logo.jsx';
 import Pic from '../components/Pic.jsx';
-import Relevo from '../relief/Relevo.jsx';
+import { useNavigate } from 'react-router-dom';
+import Relevo, { prefetchRelevo, hasWebGL, RELEVO_TEXT } from '../relief/Relevo.jsx';
 
-const relevoText = {
-  pt: { explore: 'Explorar', title: 'Pernambuco · relevo', close: 'Fechar', hint: 'Arraste para girar e inclinar · pinça ou rolagem para aproximar' },
-  en: { explore: 'Explore', title: 'Pernambuco · relief', close: 'Close', hint: 'Drag to turn and tilt · pinch or scroll to zoom' },
-};
 import { contato, ui, CV_URL } from '../data/content.js';
 import { Star, STAR } from '../components/Topo.jsx';
 
@@ -30,6 +27,12 @@ const sun = (() => {
 
 export default function Contato() {
   const t = useT();
+  const rt = t(RELEVO_TEXT);
+  const navigate = useNavigate();
+  const openExplore = (from) => {
+    try { window.umami?.track('Explorou o relevo', { origem: from }); } catch {}
+    navigate('/pernambuco');
+  };
   return (
     <>
       <section id="contato" className="dark" style={{ position: 'relative', marginTop: 'clamp(80px, 10vw, 140px)', background: '#1E3540', color: '#F4EFE6', overflow: 'hidden' }}>
@@ -50,7 +53,7 @@ export default function Contato() {
         <div className="wrap" style={{ marginTop: 90 }}>
           <div className="rv mstack" style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) 260px', border: '1.5px solid currentColor' }}>
             <div style={{ padding: '20px 24px', color: '#F4EFE6' }}>
-              <Relevo viewBox="5 10 1015 363" label={t(contato.peAlt)} text={t(relevoText)} />
+              <Relevo viewBox="5 10 1015 363" label={t(contato.peAlt)} cta={rt.explore} onExplore={() => openExplore('contato')} />
             </div>
             <div className="mono" style={{ borderLeft: '1.5px solid currentColor', display: 'grid', gridTemplateRows: 'auto auto 1fr auto', fontSize: 12 }}>
               <span style={{ padding: '14px 16px', borderBottom: '1.5px solid currentColor', fontSize: 15, lineHeight: 1.5 }}>8°19'00"S<br />37°53'00"W/</span>
@@ -85,7 +88,13 @@ export default function Contato() {
       </section>
       <footer style={{ background: '#EEE5D3' }}>
         <div className="wrap mono" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', gap: 12, paddingTop: 6, paddingBottom: 28, fontSize: 10 }}>
-          <span>8°00'32"S 34°51'18"W/</span><span>© 2026 Wictor Melo</span><a className="lnk" href="#topo" style={{ minHeight: 0 }}>{t(ui.top)}</a>
+          <span>8°00'32"S 34°51'18"W/</span>
+          {hasWebGL() && (
+            <button type="button" className="lnk foot-pe" onClick={() => openExplore('rodape')} onPointerEnter={prefetchRelevo} onFocus={prefetchRelevo} onTouchStart={prefetchRelevo}>
+              {rt.footer} ↗
+            </button>
+          )}
+          <span>© 2026 Wictor Melo</span><a className="lnk" href="#topo" style={{ minHeight: 0 }}>{t(ui.top)}</a>
         </div>
       </footer>
     </>

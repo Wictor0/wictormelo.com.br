@@ -47,6 +47,10 @@ function forCase(c) {
   const cover = c.blocks.find((b) => b.t === 'cover');
   const image = cover ? SITE + cover.src : `${SITE}/og.jpg`;
 
+  return withMeta({ title, desc, url, image });
+}
+
+function withMeta({ title, desc, url, image }) {
   let out = html.replace(/<title>[^<]*<\/title>/, `<title>${esc(title)}</title>`);
   out = setTag(out, 'name="description"', 'content', desc);
   out = setTag(out, 'rel="canonical"', 'href', url);
@@ -61,5 +65,13 @@ for (const c of cases) {
   mkdirSync(`dist/obras/${c.slug}`, { recursive: true });
   writeFileSync(`dist/obras/${c.slug}/index.html`, forCase(c));
 }
+// o relevo 3D, com endereço próprio
+mkdirSync('dist/pernambuco', { recursive: true });
+writeFileSync('dist/pernambuco/index.html', withMeta({
+  title: 'Pernambuco em 3D, Wictor Melo',
+  desc: 'O relevo de Pernambuco do litoral ao sertão, em curvas de nível. Gire, incline e aproxime.',
+  url: `${SITE}/pernambuco/`,
+  image: `${SITE}/og-pernambuco.jpg`,
+}));
 writeFileSync('dist/404.html', html);
-console.log(`postbuild: ${cases.length} páginas de case (com título, descrição e imagem próprios) + 404.html`);
+console.log(`postbuild: ${cases.length} páginas de case, /pernambuco e 404.html`);
