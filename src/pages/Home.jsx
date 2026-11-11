@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { scrollToSection } from '../scrollTo.js';
 import Hero from '../sections/Hero.jsx';
 import Sobre from '../sections/Sobre.jsx';
 import Obras from '../sections/Obras.jsx';
@@ -15,8 +16,7 @@ export default function Home() {
     // Vindo de um case (state.to) ou de um link antigo com #: rola até a seção e limpa a URL
     const id = state?.to || (hash ? hash.slice(1) : null);
     if (id) {
-      const el = document.getElementById(id);
-      if (el) setTimeout(() => el.scrollIntoView({ behavior: 'instant' }), 0);
+      setTimeout(() => scrollToSection(id, 'instant'), 0);
       window.history.replaceState(null, '', '/');
     }
   }, [hash, state]);

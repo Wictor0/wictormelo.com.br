@@ -6,6 +6,7 @@ import CasePage from './pages/CasePage.jsx';
 import Pernambuco from './pages/Pernambuco.jsx';
 import { TopoDefs } from './components/Topo.jsx';
 import { morphPending } from './morph.js';
+import { scrollToSection } from './scrollTo.js';
 
 // Transição entre páginas: uma cortina azul com o mapa sobe (sem esticar) cobrindo
 // a página que sai e continua subindo para revelar a nova.
@@ -75,10 +76,8 @@ function useCleanAnchors() {
       const a = e.target.closest && e.target.closest('a[href^="#"]');
       if (!a) return;
       const id = a.getAttribute('href').slice(1);
-      const el = id ? document.getElementById(id) : null;
       e.preventDefault();
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-      else window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (!scrollToSection(id)) window.scrollTo({ top: 0, behavior: 'smooth' });
     };
     document.addEventListener('click', onClick);
     return () => document.removeEventListener('click', onClick);

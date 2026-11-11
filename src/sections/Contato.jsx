@@ -52,7 +52,7 @@ export default function Contato() {
         </div>
         <div className="wrap" style={{ marginTop: 90 }}>
           <div className="rv mstack" style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) 260px', border: '1.5px solid currentColor' }}>
-            <div style={{ padding: '20px 24px', color: '#F4EFE6' }}>
+            <div id="pe-mapa" data-center="" style={{ padding: '20px 24px', color: '#F4EFE6' }}>
               <Relevo viewBox="5 10 1015 363" label={t(contato.peAlt)} cta={rt.explore} onExplore={() => openExplore('contato')} />
             </div>
             <div className="mono" style={{ borderLeft: '1.5px solid currentColor', display: 'grid', gridTemplateRows: 'auto auto 1fr auto', fontSize: 12 }}>
