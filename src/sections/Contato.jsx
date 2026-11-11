@@ -1,8 +1,14 @@
 import { useT } from '../i18n.jsx';
 import Logo from '../components/Logo.jsx';
 import Pic from '../components/Pic.jsx';
+import Relevo from '../relief/Relevo.jsx';
+
+const relevoText = {
+  pt: { explore: 'Explorar', title: 'Pernambuco · relevo', close: 'Fechar', hint: 'Arraste para girar e inclinar · pinça ou rolagem para aproximar' },
+  en: { explore: 'Explore', title: 'Pernambuco · relief', close: 'Close', hint: 'Drag to turn and tilt · pinch or scroll to zoom' },
+};
 import { contato, ui, CV_URL } from '../data/content.js';
-import { TopoCrop, Star, STAR } from '../components/Topo.jsx';
+import { Star, STAR } from '../components/Topo.jsx';
 
 const stars = [
   { x: 37, y: 50, size: 28, fill: '#F4EFE6', d: 0 }, { x: 50, y: 14, size: 34, fill: '#F4EFE6', d: 1.2 }, { x: 63, y: 50, size: 28, fill: '#F4EFE6', d: 0.6 },
@@ -43,7 +49,9 @@ export default function Contato() {
         </div>
         <div className="wrap" style={{ marginTop: 90 }}>
           <div className="rv mstack" style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) 260px', border: '1.5px solid currentColor' }}>
-            <div style={{ padding: '20px 24px', color: '#F4EFE6' }}><TopoCrop viewBox="5 10 1015 363" slice={false} label={t(contato.peAlt)} /></div>
+            <div style={{ padding: '20px 24px', color: '#F4EFE6' }}>
+              <Relevo viewBox="5 10 1015 363" label={t(contato.peAlt)} text={t(relevoText)} />
+            </div>
             <div className="mono" style={{ borderLeft: '1.5px solid currentColor', display: 'grid', gridTemplateRows: 'auto auto 1fr auto', fontSize: 12 }}>
               <span style={{ padding: '14px 16px', borderBottom: '1.5px solid currentColor', fontSize: 15, lineHeight: 1.5 }}>8°19'00"S<br />37°53'00"W/</span>
               <span style={{ padding: '14px 16px', borderBottom: '1.5px solid currentColor', fontFamily: "'Inter Tight', sans-serif", fontWeight: 600, fontSize: 24, letterSpacing: 0 }}>PERNAMBUCO</span>
