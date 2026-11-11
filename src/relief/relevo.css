@@ -1,0 +1,45 @@
+/* Relevo 3D e a página de teste /teste-relevo. Nada daqui toca o site. */
+.relevo{position:relative;width:100%;height:100%;color:#EEE5D3;overflow:hidden}
+.relevo-2d{position:absolute;inset:0;width:100%;height:100%;padding:6% 5%;box-sizing:border-box;transition:opacity .6s}
+.relevo-3d{position:absolute;inset:0;transition:opacity .8s}
+.relevo-pt{position:absolute;left:0;top:0;width:0;height:0;pointer-events:none;will-change:transform}
+.relevo-pt::before{content:'';position:absolute;left:-2.5px;top:-2.5px;width:5px;height:5px;border-radius:50%;background:#D2A04A}
+.relevo-pt i{position:absolute;left:-.5px;bottom:3px;width:1px;background:rgba(238,229,211,.45)}
+.relevo-pt span{position:absolute;left:-3px;white-space:nowrap;font:400 10px/1.2 'Space Mono',ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:#EEE5D3;text-shadow:0 0 3px #1E3540,0 0 3px #1E3540,0 0 6px #1E3540,0 0 6px #1E3540}
+.relevo-pt small{display:block;font-size:9px;opacity:.6;text-transform:none}
+
+.teste{position:fixed;inset:0;background:#1E3540;color:#EEE5D3;font-family:'Space Mono',ui-monospace,monospace;display:flex}
+.teste-cena{flex:1;min-width:0;position:relative}
+.teste-selo{position:absolute;left:20px;top:18px;font-size:10px;letter-spacing:.08em;text-transform:uppercase;opacity:.6;line-height:1.6;pointer-events:none}
+.teste-selo b{color:#D2A04A;font-weight:400}
+.painel{width:292px;flex:none;box-sizing:border-box;padding:18px 18px 22px;border-left:1px solid rgba(238,229,211,.18);background:rgba(20,38,47,.92);overflow-y:auto;font-size:11px;letter-spacing:.04em}
+.painel h1{margin:0 0 14px;font:italic 400 22px/1.1 'IM Fell DW Pica',Georgia,serif;letter-spacing:0}
+.painel h2{margin:20px 0 10px;padding-top:14px;border-top:1px solid rgba(238,229,211,.18);font-size:10px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;opacity:.6}
+.ctl{display:block;margin:0 0 14px}
+.ctl-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;text-transform:uppercase;letter-spacing:.08em;font-size:10px}
+.ctl-top output{color:#D2A04A;text-transform:none}
+.ctl input[type=range]{width:100%;margin:0;accent-color:#D2A04A;height:18px}
+.ctl-dica{display:block;margin-top:3px;opacity:.5;font-size:9.5px;line-height:1.4}
+.btns{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px}
+.btns button{flex:1;min-width:0;padding:7px 8px;border:1px solid rgba(238,229,211,.35);background:none;color:inherit;font:inherit;font-size:10px;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;white-space:nowrap}
+.btns button:hover{border-color:#EEE5D3}
+.btns button[aria-pressed=true]{background:#EEE5D3;color:#1E3540;border-color:#EEE5D3}
+.btns button:focus-visible,.ctl input:focus-visible{outline:2px solid #D2A04A;outline-offset:2px}
+.medida{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(238,229,211,.18);border:1px solid rgba(238,229,211,.18);margin-bottom:8px}
+.medida div{background:#17303a;padding:8px 10px}
+.medida dt{font-size:9px;letter-spacing:.1em;text-transform:uppercase;opacity:.55}
+.medida dd{margin:2px 0 0;font-size:15px;font-variant-numeric:tabular-nums;letter-spacing:0}
+.painel pre{margin:0 0 8px;padding:10px;background:#17303a;font:inherit;font-size:10px;line-height:1.6;white-space:pre-wrap;user-select:all}
+.painel-abre{display:none}
+
+@media (max-width:760px){
+  .teste{flex-direction:column}
+  .painel{width:auto;border-left:0;border-top:1px solid rgba(238,229,211,.18);max-height:46vh;padding:12px 16px 18px}
+  .painel.fechado{max-height:none;overflow:hidden;padding-bottom:12px}
+  .painel.fechado > :not(.painel-topo){display:none}
+  .painel h1{font-size:18px;margin:0}
+  .painel-topo{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+  .painel.fechado .painel-topo{margin-bottom:0}
+  .painel-abre{display:block;border:1px solid rgba(238,229,211,.35);background:none;color:inherit;font:inherit;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:6px 10px}
+  .teste-selo{left:16px;top:14px}
+}

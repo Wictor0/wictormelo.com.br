@@ -61,5 +61,7 @@ for (const c of cases) {
   mkdirSync(`dist/obras/${c.slug}`, { recursive: true });
   writeFileSync(`dist/obras/${c.slug}/index.html`, forCase(c));
 }
+mkdirSync('dist/teste-relevo', { recursive: true });
+writeFileSync('dist/teste-relevo/index.html', html);
 writeFileSync('dist/404.html', html);
 console.log(`postbuild: ${cases.length} páginas de case (com título, descrição e imagem próprios) + 404.html`);
