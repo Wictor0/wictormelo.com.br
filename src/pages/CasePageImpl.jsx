@@ -89,8 +89,8 @@ export default function CasePage() {
   return (
     <div className="case" style={{ maxWidth: 1440, margin: '0 auto', background: '#EEE5D3', color: '#181614' }}>
       <div className="c-top mono case-top" style={{ padding: '40px 64px 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16 }}>
-        <Link className="lnk" to="/" state={{ to: 'obras' }} style={{ fontSize: 11 }}>{t(ui.back)}</Link>
-        <span style={{ display: 'flex', alignItems: 'center', gap: 20, fontSize: 11 }}><LangSwitch /><span>{t(c.num)}</span></span>
+        <Link className="lnk c-back" to="/" state={{ to: 'obras' }} style={{ fontSize: 11 }}>{t(ui.back)}</Link>
+        <span className="c-right" style={{ display: 'flex', alignItems: 'center', gap: 20, fontSize: 11 }}><LangSwitch /><span className="c-num">{t(c.num)}</span></span>
       </div>
       <div className="c-head" style={{ padding: '60px 64px 0', display: 'grid', gridTemplateColumns: 'minmax(0,1fr) 420px', gap: 64, alignItems: 'end' }}>
         <div>
